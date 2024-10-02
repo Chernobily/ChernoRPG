@@ -18,6 +18,13 @@ ChernoRPG é focado em combate e customização, com um sistema de Combate por T
 
 Você e seu aliado serão organizados entre a linha de frente e na linha de trás. Enquanto na Linha da Frente, você receberá todos os ataques diretos, assim sendo uma posição mais sugerida para os personagens corpo-a-corpo, já na Linha de Trás, você só será atingido por ataques específicos, favorecendo então personagens que não aguentam tantos ataques mas que podem dar altas quantidades de dano. Caso você e seu parceiro, decidam ambos escolher personagens com a mesma função, temos uma mecânica para trocar quem está em cada posição, assim podendo escolher ou alternar quem irá receber os ataques inimigos. 
 
+
+
+### Microtransações
+- Raças e Classes exclusivas
+- Miniaturas de personagens
+- Expansão do Jogo com novos conteúdos
+
 ## Inspirações
 
 - [Dungeons and Dragons TTRPG](https://dnd.wizards.com/pt-BR)
