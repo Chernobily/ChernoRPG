@@ -1,0 +1,9 @@
+//criar uma página html simples
+<html>
+  <head>
+    <title>Jogo</title>
+  </head>
+  <body>
+    Oi!
+  </body>
+</html>
