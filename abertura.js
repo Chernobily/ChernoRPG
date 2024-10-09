@@ -12,7 +12,7 @@ export default class abertura extends Phaser.Scene {
       .setInteractive()
       .on('pointerdown', () => {
         this.scene.stop('abertura')
-        this.scene.start('jogo')
+        this.scene.start('sala')
       })
   }
 }
