@@ -1,4 +1,4 @@
-# ChernoRPG
+# Heroes of Onvyr
 
 Projeto do Semestre 2024.2
 
