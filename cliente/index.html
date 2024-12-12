@@ -234,7 +234,9 @@ Keith um Investigador da cidade, começou a notar esses ocorridos dos caminhões
 &gt;[[Prosseguir-&gt;Dupla]]</tw-passagedata><tw-passagedata pid="2" name="Conclusão" tags="" position="550,2300" size="100,100">Com a morte do Vampiro Original, seus lacaios colapsam, como marionetes sem fios. Keith e Jensen escapam do cemitério, exaustos mas aliviados. Eles entregam os restos do culto às autoridades locais e usam suas descobertas para alertar o mundo sobre os horrores escondidos em Durham.
 
 Enquanto o sol nasce sobre a cidade, Keith reflete:
-&quot;O mundo é muito mais sombrio do que imaginamos. Mas, às vezes, a luz encontra um jeito de prevalecer.&quot;</tw-passagedata><tw-passagedata pid="3" name="Correr 1" tags="" position="625,1800" size="100,100">Enquanto correm pelos corredores, eles coletam pistas cruciais: um símbolo gravado em uma moldura próxima à lareira e um mapa antigo preso à parede, marcando um local específico fora da cidade. No mapa, há um nome associado à marcação: Casa da Ordem Sombria. Isso sugere uma conexão entre os vampiros e alguma organização oculta.
+&quot;O mundo é muito mais sombrio do que imaginamos. Mas, às vezes, a luz encontra um jeito de prevalecer.&quot;
+
+&gt;[[Fim]]</tw-passagedata><tw-passagedata pid="3" name="Correr 1" tags="" position="625,1800" size="100,100">Enquanto correm pelos corredores, eles coletam pistas cruciais: um símbolo gravado em uma moldura próxima à lareira e um mapa antigo preso à parede, marcando um local específico fora da cidade. No mapa, há um nome associado à marcação: Casa da Ordem Sombria. Isso sugere uma conexão entre os vampiros e alguma organização oculta.
 
 Keith e Jensen decidem subir as escadas para ganhar tempo. Lá, encontram um caderno empoeirado. Ao folheá-lo, descobrem que a casa pertence a um antigo culto que serve a um &quot;Vampiro Original&quot;. Este estaria governando a cidade de Durham nas sombras por séculos, mantendo um equilíbrio entre o uso de lacaios e a manipulação da política local para ocultar suas atividades.
 
@@ -467,4 +469,73 @@ Ambos são arrastados para dentro do quarto e são dilacerados por várias daque
 
 Digite a sequência de fases da Lua: {text input for: &#39;fases&#39;}
 
-&gt;[[Resolver-&gt;Enigma]]</tw-passagedata></tw-storydata></html>
+&gt;[[Resolver-&gt;Enigma]]</tw-passagedata><tw-passagedata pid="18" name="Fim" tags="" position="550,2425" size="100,100">Faça o login no Google para adicionar TJL${tijolinhos} de crédito.
+
+[JavaScript]
+window.setup = {}
+
+setup.loadError = function (oError) {
+  throw new URIError(
+    &#39;The script &#39; + oError.target.src + &quot; didn&#39;t load correctly.&quot;
+  )
+}
+
+setup.loadScript = function (url, onloadFunction) {
+  const newScript = document.createElement(&#39;script&#39;)
+  newScript.onerror = setup.loadError
+  if (onloadFunction) {
+    newScript.onload = onloadFunction
+  }
+  document.head.appendChild(newScript)
+  newScript.async = true
+  newScript.src = url
+}
+
+setup.loadScript(&#39;https://accounts.google.com/gsi/client&#39;, () =&gt; {
+  google.accounts.id.initialize({
+    client_id: engine.state.get(&#39;GoogleClientID&#39;),
+    callback: (res) =&gt; {
+      if (res.error) {
+        console.error(res.error)
+      } else {
+        const url = &#39;https://feira-de-jogos.dev.br/api/v2/credit&#39;
+        const options = {
+          method: &#39;POST&#39;,
+          headers: {
+            &#39;Accept&#39;: &#39;application/json&#39;,
+            &#39;Authorization&#39;: `Bearer ${res.credential}`,
+            &#39;Content-Type&#39;: &#39;application/json&#39;
+          },
+          body: JSON.stringify({
+            product: engine.state.get(&#39;produto&#39;),
+            value: engine.state.get(&#39;tijolinhos&#39;)
+          })
+        }
+        const req = new Request(url, options)
+        
+        fetch(req)
+          .then((response) =&gt; {
+            if (response.ok) {
+              alert(&quot;Crédito realizado com sucesso!&quot;)
+              console.log(response.status)
+            } else {
+              if (response.status == 429){
+                alert(&quot;Falha: operação duplicada.&quot;)
+              } else {
+                alert(&quot;Erro ao realizar operação de crédito.&quot;)
+              }
+              console.error(response)
+            }
+          }
+        )
+      }
+    },
+  })
+
+  google.accounts.id.prompt((notification) =&gt; {
+    if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+      google.accounts.id.prompt()
+    }
+  })
+})
+[continued]</tw-passagedata></tw-storydata></html>
